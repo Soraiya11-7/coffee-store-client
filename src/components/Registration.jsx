@@ -48,7 +48,7 @@ const Registration = () => {
                 // console.log(newUser);
                // data send to server
         
-               fetch("http://localhost:5000/users", {
+               fetch("https://coffee-store-server-alpha-gules.vercel.app/users", {
                 method:"POST",
                 headers: {
                     'content-type': 'application/json'
@@ -57,7 +57,7 @@ const Registration = () => {
                })
                .then(res => res.json())
                .then(data => {
-                console.log(data);
+                // console.log(data);
                 if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',

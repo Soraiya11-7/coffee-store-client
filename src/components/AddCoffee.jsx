@@ -14,10 +14,10 @@ const AddCoffee = () => {
         const image = form.image.value;
 
         const newCoffee = {name, quantity,supplier,taste,category,details,image};
-        console.log(newCoffee);
+        // console.log(newCoffee);
        // data send to server
 
-       fetch("http://localhost:5000/coffee", {
+       fetch("https://coffee-store-server-alpha-gules.vercel.app/coffee", {
         method:"POST",
         headers: {
             'content-type': 'application/json'
@@ -26,7 +26,7 @@ const AddCoffee = () => {
        })
        .then(res => res.json())
        .then(data => {
-        console.log(data);
+        // console.log(data);
         if(data.insertedId){
             Swal.fire({
                 title: 'Success!',

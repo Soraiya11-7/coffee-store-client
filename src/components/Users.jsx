@@ -9,7 +9,7 @@ const Users = () => {
     const [users, setUsers] = useState(allUser);
 
     const handleDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
 
         Swal.fire({
             title: "Are you sure?",
@@ -21,16 +21,16 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${_id}`,{
+                fetch(`https://coffee-store-server-alpha-gules.vercel.app/users/${_id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())
                 .then(data =>{
-                    console.log(data);
+                    // console.log(data);
                     if(data.deletedCount > 0){
                         Swal.fire({
                             title: "Deleted!",
-                            text: "Your Coffee has been deleted.",
+                            text: "Your user has been deleted.",
                             icon: "success"
                           });
                           const remaining = users.filter(user => user._id !== _id);
