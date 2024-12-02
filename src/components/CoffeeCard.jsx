@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-
 const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
 
     const { _id, name, quantity, supplier, taste, category, details, image } = coffee;
-//   const []
+
     const handleDelete = (_id) => {
         console.log(_id);
 
@@ -19,7 +18,6 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-
                 fetch(`http://localhost:5000/coffee/${_id}`,{
                     method: 'DELETE'
                 })
@@ -32,12 +30,10 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
                             text: "Your Coffee has been deleted.",
                             icon: "success"
                           });
-
                           const remaining = coffees.filter(cof => cof._id !== _id);
                           setCoffees(remaining);
                     }
-                })
-              
+                })    
             }
           });
     }
